@@ -23,9 +23,21 @@ Node `>=` v8.9.0
 
 ```
 npm install
+# or yarn install
 ```
 
-To start the development server (and Mix), run the `npm run dev` command in terminal. Eleventy has hot reloading baked in and will automatically watch your template files for changes. Mix will watch any changes to the JS and SCSS files.
+To start the development server (and Mix), run the `npm run hot` or `yarn hot` command in terminal. Eleventy has hot reloading baked in and will automatically watch your template files for changes. Mix will watch any changes to the JS and SCSS files.
+
+## Important Notes
+
+All CSS edits should be done in the `resources/sass` folder. Any changes in the root `css` dir will be ignored!
+
+## Getting Started
+
+Edit the `site/index.njk` file to start editing the home page. As long as `yarn hot` is running, changes will be automatically
+updated when any `.*njk` file is saved.
+
+The site pages extend a layout component. The layouts can be found in the `site/includes/layouts` directory.
 
 ## Folder Structure
 

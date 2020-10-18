@@ -51,6 +51,8 @@ module.exports = eleventyConfig => {
     eleventyConfig.addPassthroughCopy("images")
     eleventyConfig.addPassthroughCopy("robots.txt")
 
+    eleventyConfig.setBrowserSyncConfig({ open: true})
+
     return {
         templateFormats: ["md", "njk"],
         markdownTemplateEngine: 'njk',

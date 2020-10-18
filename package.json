@@ -3,8 +3,11 @@
   "version": "2.0.0",
   "description": "Skeleventy - A skeleton boilerplate built with Eleventy",
   "scripts": {
-    "dev": "ELEVENTY_ENV=development npx @11ty/eleventy --config=eleventy.config.js --serve & webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js && npx @11ty/eleventy --config=eleventy.config.js"
+    "11ty": "npx @11ty/eleventy --config=eleventy.config.js",
+    "mix": "webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "cross-env ELEVENTY_ENV=development npm-run-all --parallel \"11ty -- --serve\" \"mix -- --watch\" ",
+    "hot": "cross-env ELEVENTY_ENV=development npm-run-all --parallel \"11ty -- --serve\" \"mix -- --watch\" ",
+    "production": "cross-env NODE_ENV=production npm-run-all --sequential mix 11ty"
   },
   "repository": {
     "type": "git",
@@ -22,5 +25,9 @@
     "sass-loader": "^8.0.0",
     "tailwindcss": "^1.2.0",
     "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "npm-run-all": "^4.1.5"
   }
 }
